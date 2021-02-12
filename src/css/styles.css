@@ -1,0 +1,242 @@
+:root{
+   --desaturated-red: hsl(0, 36%, 70%);
+   --soft-red: hsl(0, 93%, 68%);
+   --dark-grayish-red:  hsl(0, 6%, 24%);
+
+   --linear-1: hsl(0, 0%, 100%);
+   --linear-2: hsl(0, 100%, 98%);
+
+   --linear-3: hsl(0, 80%, 86%);
+   --linear-4: hsl(0, 74%, 74%);
+}
+
+html{
+   box-sizing: border-box;
+}
+
+*{
+   box-sizing: inherit;
+}
+
+body{
+   font-size: 16px;
+   font-family: "Josefin Sans", sans-serif;
+}
+
+.header{
+   padding: 2rem;
+}
+
+.main{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.main__img{
+   background-image: url(../assets/img/hero-mobile.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   width: 100%;
+   height: 400px;
+}
+
+@media screen and (min-width: 1000px) {
+
+   .header{
+      position: absolute;
+      top: 0;
+   }
+
+   .main{
+      flex-direction: row-reverse;
+   }
+
+   .main__img{
+      background-image: url(../assets/img/hero-desktop.jpg);
+      min-height: 800px;
+      height: 100vh;
+      width: 40%;
+   }
+}
+
+
+
+.presentation{
+   text-align: center;
+   margin: 2rem 2rem 5rem 2rem;
+   font-weight: 400;
+   max-width: 600px;
+}
+
+.presentation__title{
+   font-size: 2.5rem;
+   text-transform: uppercase;
+   letter-spacing: 10px;
+}
+
+.presentation__title--coral{
+   font-weight: 300;
+}
+
+.presentation__title--coral,
+.presentation__subtitle{
+   color: var(--desaturated-red);
+}
+
+.presentation__subtitle{
+   line-height: 2rem;
+   font-size: 1.1rem;
+}
+
+@media screen and (min-width: 700px) {
+   .presentation__title{
+      font-size: 4rem;
+   }
+
+   .presentation__subtitle{
+      font-size: 1.3rem;
+   }
+}
+
+@media screen and (min-width: 1000px) {
+   .presentation{
+      text-align: start;
+      padding-left: 5rem;
+      padding-right: 5rem;
+      width: 60%;
+      max-width: none;
+      margin-left: auto;  
+      margin-right: auto;
+   }
+
+   .presentation__title{
+      text-transform: uppercase;
+      letter-spacing: 20px;
+   }
+
+   .presentation__subtitle{
+      line-height: 2.5rem;
+      font-size: 1.2rem;
+   }
+   
+}
+
+@media screen and (min-width: 1300px) {
+   .presentation{
+      max-width: 800px;
+   }
+
+   .presentation__title{
+      font-size: 5rem;
+   }
+
+   .presentation__subtitle{
+      font-size: 1.5rem;
+   }
+   
+}
+
+
+.presentation__form{
+   margin-top: 3rem;
+   position: relative;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+@media screen and (min-width: 1000px) {
+   .presentation__form{
+      width: 500px;
+   }
+}
+
+.presentation__email{
+   border: 1px solid var(--desaturated-red);
+   border-radius: 1.5rem;
+   padding: 1rem;
+   width: 100%;
+   height: 45px;
+   position: relative;
+}
+
+.presentation__email--error{
+   border: 2px solid var(--soft-red);
+}
+
+.presentation__email:focus,
+.presentation__submit:focus{
+   outline: 1px dashed var(--desaturated-red);
+}
+
+.presentation__email::placeholder{
+   color: var(--desaturated-red);
+}
+
+.presentation__submit{
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 60px;
+   height: 45px;
+   border-radius: 1.5rem;
+   font-size: 2rem;
+   border: 0;
+   background-image: linear-gradient(135deg, var(--linear-3), var(--linear-4));
+}
+
+.presentation__submit:hover{
+   opacity: 0.7;
+}
+
+
+.presentation__submit--error::after{
+   content: url(../assets/img/icon-error.svg);
+   position: absolute;
+   top: 10px;
+   left: -30px;
+}
+
+
+.presentation__submit::before{
+   content: url(../assets/img/icon-arrow.svg);
+   position: absolute;
+   top: 7px;
+   left: 45%;
+}
+
+@media screen and (min-width: 500px){
+   .presentation__email,
+   .presentation__submit{
+      height: 55px;
+   }
+
+   .presentation__submit{
+      width: 80px;
+   }
+
+   .presentation__submit::after{
+      top: 15px;
+   }
+
+   .presentation__submit::before{
+      top: 12px;
+   }
+}
+
+@media screen and (min-width: 1000px) {
+   .presentation__email,
+   .presentation__submit{
+      border-radius: 2rem;
+   }
+
+   .presentation__submit{
+      width: 100px;
+   }
+}
+
+.presentation__error{
+   color: var(--soft-red);
+   text-align: start;
+   margin-left: 1rem;
+}
